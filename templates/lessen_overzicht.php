@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="templates/CSS/sport_list.css">
+    <link rel="stylesheet" type="text/css" href="templates/CSS/styles.css">
+    <title>Document</title>
+</head>
+<body>
+<?php
+include "templates/nav_docent.php";
+?>
+<div class="container">
+    <?php
+    $lessen = $_SESSION['lessen'];
+    echo "<table><tr><th>ID</th><th>Naam</th><th>Lokaal</th><th>Sport</th><th>Leraar</th></tr>" ;
+    foreach($lessen as $les){
+        $id = $les['idLes'];
+        echo "<tr><td>". $les['idLes']. "</td><td>".  $les['naam']. "</td><td>". $les['lokaal_idlokaal']. "</td><td>". $les['sport_idSport']. "</td><td>". 
+        $les['gebruiker_idLeraar']. "</td><td>".  "<a href='?fun=lu&idSport=$id'>wijzigen</a>".
+         "</td><td>". "<a href='?fun=ld&idSport=$id'>verwijderen</a>". "</td></tr>";
+        
+    }
+    echo '</table>';
+
+        echo "<a href='?fun=lc'>nieuw</a>";
+    ?>
+</div>
+</body>
+</html>

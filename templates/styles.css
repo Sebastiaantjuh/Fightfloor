@@ -1,0 +1,27 @@
+nav ul li{
+    display: inline;
+}
+nav ul li a{
+    text-decoration:none;
+    color:rgb(63, 5, 63);
+}
+header{
+    background-color:rgb(177, 233, 202,.30);
+    height:50px;
+    padding:10px;
+    color:rgb(63, 5, 63);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body{
+    color:rgb(63, 5, 63);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image:url('images/MotivatieTips.jpg');
+}
+#wrapper{
+    opacity:50%;
+    background-color: white;
+}
+form, p{
+    margin:10px;
+    padding:10px;
+}
