@@ -67,7 +67,7 @@ include 'templates/head.php';
             <form method="post" action="../PHP/newsletter.php">
                 <h2 class="text-center">Nieuwsbrief</h2>
                 <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="Name" style="border-radius: 20px;"></div>
-                <div class="mb-3"><input class="form-control is-invalid" type="email" name="email" placeholder="Email" style="border-radius: 20px;"><small class="form-text text-danger">Please enter a correct email address.</small></div>
+                <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email" style="border-radius: 20px;"></div>
                 <div class="mb-3"></div>
                 <div class="mb-3"><button class="btn btn-primary" type="submit" style="color: rgb(255, 255, 255);background: #00366f;">send </button></div>
             </form>

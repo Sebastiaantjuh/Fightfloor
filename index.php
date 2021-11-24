@@ -17,6 +17,10 @@ if(isset($_POST['form']))
         case 'register': registerAction();
         break;
         case 'au': account_wijzigen();
+        break;
+        case 'lu': les_wijzigen();
+        break;
+        case 'lc':les_toevoegen();
         default;
     
     }
@@ -55,8 +59,8 @@ elseif(isset($_GET['fun'])){
     elseif($_GET['fun']=='lu' && $_SESSION['rechten']== 2){
         les_wijzigen();
     }
-    elseif($_GET['fun']=='ld' && $_SESSION['rehcten']== 2){
-        les_verwijderen();
+    elseif($_GET['fun']=='ld' && $_SESSION['rechten']== 2){
+        les_weggooien();
     }
     elseif($_GET['fun']==2){
         registerAction();

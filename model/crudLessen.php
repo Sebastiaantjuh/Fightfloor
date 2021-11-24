@@ -18,11 +18,14 @@ function les_toevoegen() {
         $lokaal = $_POST['lokaal'];
         $sport = $_POST['sport'];
         $leraar = $_POST['leraar'];
-        $statement = $pdo->prepare("INSERT INTO les (naam, lokaal_idlokaal, sport_idSport, gebruiker_idLeraar VALUES(:naam, :lokaal, :sport, :leraar)");
+        $datum = $_POST['datum'];
+        $statement = $pdo->prepare("INSERT INTO les (naam, lokaal_idlokaal, sport_idSport, gebruiker_idLeraar, datum)
+        VALUES (:naam, :lokaal, :sport, :leraar, :datum)");
         $statement->bindParam(':naam', $naam);
         $statement->bindParam(':lokaal', $lokaal);
         $statement->bindParam(':sport', $sport);
         $statement->bindParam(':leraar', $leraar);
+        $statement->bindParam(':datum', $datum);
         $statement->execute();
 
         if ($statement)
@@ -63,12 +66,14 @@ function les_wijzigen(){
         $naam = $_POST['naam'];
         $lokaal = $_POST['lokaal'];
         $leraar = $_POST['leraar'];
-        $statement = $pdo->prepare("UPDATE les SET naam = :naam, lokaal_idlokaal = :lokaal, gebruiker_idLeraar = :leraar 
+        $datum = $_POST['datum'];
+        $statement = $pdo->prepare("UPDATE les SET naam = :naam, lokaal_idlokaal = :lokaal, gebruiker_idLeraar = :leraar, datum = :datum 
         WHERE idLes =:id ");
         $statement->bindParam(':naam', $naam);
         $statement->bindParam(':id', $id);
         $statement->bindParam(':lokaal', $lokaal);
         $statement->bindParam(':leraar', $leraar);
+        $statement->bindParam(':datum', $datum);
         $statement->execute();
         if ($statement)
         {
@@ -108,7 +113,7 @@ function les_weggooien(){
     try {
         $statement->execute();
         $pdo=null;
-        get_sporten();
+        get_lessen();
     }
     catch (PDOException $pdoe) {
         echo "fout bij verwijderen";
