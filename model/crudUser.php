@@ -16,6 +16,7 @@ function inlogAction(){
         {
             if($user['wachtwoord']==$hashed_password)
             {
+                $_SESSION['id']=$user['idKlant'];
                 $_SESSION['naam']=$user['naam'];
                 $_SESSION['rechten']=$user['rol'];
                 switch($_SESSION['rechten'])
@@ -27,7 +28,7 @@ function inlogAction(){
                         include 'templates/docenten.php';
                         break;
                     case 3:
-                        include 'templates/rol3.php';
+                        include 'templates/klant.php';
                         break;
                     default: break;
                 }

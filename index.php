@@ -29,8 +29,11 @@ elseif(isset($_GET['fun'])){
     if($_GET['fun']==1){
         inlogAction();
     }
-    elseif($_GET['fun']=='sr' && $_SESSION['rechten']== 1 ){ //crud items a
+    elseif($_GET['fun']=='sr' && $_SESSION['rechten']== 1){ //crud items a
         get_sporten();       
+    }
+    elseif($_GET['fun']=='ksr' && $_SESSION['rechten']== 3) {
+        get_sporten();
     }
     elseif($_GET['fun']=='sc' && $_SESSION['rechten']== 1 ){ // crud items b
         sport_toevoegen();
@@ -53,6 +56,9 @@ elseif(isset($_GET['fun'])){
     elseif($_GET['fun']=='lr' && $_SESSION['rechten']== 2){
         get_lessen();
     }
+    elseif($_GET['fun']=='klr' && $_SESSION['rechten']== 3){
+        get_lessen();
+    }
     elseif($_GET['fun']=='lc' && $_SESSION['rechten']== 2){
         les_toevoegen();
     }
@@ -67,6 +73,9 @@ elseif(isset($_GET['fun'])){
     }
     elseif($_GET['fun']==99){
         uitlogAction();
+    }
+    elseif($_GET['fun']=='home'){
+        include 'templates/home.php';
     }
     
 }
@@ -85,7 +94,7 @@ else{
                 include 'templates/docenten.php';
                 break;
             case 3:
-                include 'templates/rol3.php';
+                include 'templates/klant.php';
                 break;
             default: break;
         }

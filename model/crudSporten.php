@@ -45,7 +45,12 @@ function get_sporten(){
         $statement->execute();
         $sporten = $statement->fetchAll(PDO::FETCH_ASSOC);
         $_SESSION['sporten']=$sporten;
+        if ($_SESSION['rechten']== 1){
         include 'templates/listsporten.php';
+        }
+        elseif ($_SESSION['rechten']== 3){
+            include 'templates/sporten.php';
+        }
         
     }
     catch(PDOException $pdoe) {

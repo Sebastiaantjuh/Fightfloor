@@ -51,7 +51,13 @@ function get_lessen(){
         $statement->execute();
         $lessen = $statement->fetchAll(PDO::FETCH_ASSOC);
         $_SESSION['lessen']=$lessen;
-        include 'templates/lessen_overzicht.php';
+        //docenten naar een andere pagina leiden
+        if ($_SESSION['rechten']== 2){
+            include 'templates/lessen_overzicht.php';
+        }
+        elseif ($_SESSION['rechten']== 3){
+            include 'templates/lessen_overzicht_klanten.php';
+        }
     }
     catch(PDOExeception $pdoe) {
         echo "fout bij opvragen";
